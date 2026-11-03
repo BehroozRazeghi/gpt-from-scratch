@@ -1,8 +1,14 @@
 class Solution:
     def get_minimizer(self, iterations: int, learning_rate: float, init: int) -> float:
-        
-        for i in range(iterations):
-            d = 2 * init
-            init = init - d * learning_rate
+        # Objective function: f(x) = x^2
+        # Derivative:         f'(x) = 2x
+        # Update rule:        x = x - learning_rate * f'(x)
+        # Round final answer to 5 decimal places
+        # pass
 
-        return round(init, 5)
+        res = init
+
+        for i in range(iterations):
+            res -= learning_rate * (2 * res)
+
+        return round(res, 5)
